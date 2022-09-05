@@ -12,12 +12,11 @@ function Home () {
   const [filterActive, setFilterActive] = useState('all')
   const [tasks, setTasks] = useState([])
 
-  async function loadTasks () {
-    const tasks = await api.get(`/tasks/filter/${filterActive}/11:11:11:11:11:11`)
-    setTasks(tasks.data)
-  }
-
   useEffect(() => {
+    async function loadTasks() {
+      const tasks = await api.get(`/tasks/filter/${filterActive}/11:11:11:11:11:11`)
+      setTasks(tasks.data)
+    }
     loadTasks()
   }, [filterActive])
 
