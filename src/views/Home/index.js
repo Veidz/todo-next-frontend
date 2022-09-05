@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { Container, FilterContainer } from './style'
+import { Container, FilterContainer, Content } from './style'
 
 import Header from '../../components/Header'
 import FilterCard from '../../components/FilterCard'
 import Footer from '../../components/Footer'
+import TaskCard from '../../components/TaskCard'
 
 function Home () {
   const [filterActive, setFilterActive] = useState('today')
@@ -45,6 +46,19 @@ function Home () {
         </button>
       </FilterContainer>
 
+      
+
+      <Content>
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+      </Content>
 
       <Footer />
     </Container>

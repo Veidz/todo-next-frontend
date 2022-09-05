@@ -12,7 +12,14 @@ export const FilterContainer = styled.div`
   margin: 30px 30px 0;
 
   button {
-    background-color: transparent;
+    background: none;
     border: none;
   }
+`
+
+export const Content = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `
