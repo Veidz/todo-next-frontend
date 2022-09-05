@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Container, LeftSide, Links, RightSide } from './style'
 import logo from '../../assets/logo.png'
 import notification from '../../assets/notification.png'

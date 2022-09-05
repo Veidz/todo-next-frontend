@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Container } from './style'
 import logo from '../../assets/logo-footer.png'
 
