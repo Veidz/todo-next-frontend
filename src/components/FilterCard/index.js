@@ -2,11 +2,11 @@ import { Container } from './style'
 
 import filter from '../../assets/filter.png'
 
-function FilterCard () {
+function FilterCard ({ title, active }) {
   return (
-    <Container>
+    <Container active={ active }>
       <img src={ filter } alt='Filter' />
-      <span>All</span>
+      <span>{ title }</span>
     </Container>
   )
 }
