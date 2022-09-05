@@ -4,13 +4,12 @@ export const Container = styled.div`
   width: 250px;
   height: 70px;
   background: ${(props) => props.active ? 'rgb(99, 59, 188)' : 'rgba(99, 59, 188, 0.3)'};
-  color: #F2EBEB;
+  color: rgb(242, 235, 235);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
-  margin: 30px 30px 0;
   cursor: pointer;
 
   img {
