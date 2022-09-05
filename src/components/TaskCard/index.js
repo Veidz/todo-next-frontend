@@ -1,17 +1,23 @@
-import { BottomCard, Container, TopCard } from './style'
+import { useMemo } from 'react'
+import { format } from 'date-fns'
 
+import { BottomCard, Container, TopCard } from './style'
 import defaultIcon from '../../assets/default.png'
 
-function TaskCard () {
+
+function TaskCard ({ type, title, when }) {
+  const date = useMemo(() => format(new Date(when), 'dd/MM/yyyy'))
+  const hour = useMemo(() => format(new Date(when), 'HH:mm'))
+
   return (
     <Container>
       <TopCard>
         <img src={ defaultIcon } alt='Task icon' />
-        <h3>Task Title</h3>
+        <h3>{ title }</h3>
       </TopCard>
       <BottomCard>
-        <strong>31/12/2022</strong>
-        <span>22:22</span>
+        <strong>{ date }</strong>
+        <span>{ hour }</span>
       </BottomCard>
     </Container>
   )
