@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.data`
+export const Container = styled.header`
   width: 100%;
   height: 70px;
   background: #0B0B0C;
