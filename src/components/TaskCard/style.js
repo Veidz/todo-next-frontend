@@ -11,6 +11,13 @@ export const Container = styled.div`
   box-shadow: -3px 1px 13px -2px rgba(0, 0, 0, 0.73);
   border-radius: 10px;
   margin: 20px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
 `
 
 export const TopCard = styled.div`

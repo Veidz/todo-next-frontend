@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.header`
   width: 100%;
   height: 70px;
-  background: #0B0B0C;
-  color: #F2EBEB;
-  border-bottom: 5px solid #633BBC;
+  background: rgb(11, 11, 12);
+  color: rgb(242, 235, 235);
+  border-bottom: 5px solid rgb(99, 59, 188);
   display: flex;
 `
 
@@ -36,8 +36,8 @@ export const RightSide = styled.div`
     }
 
     span {
-      background-color: #fff;
-      color: #8257E6;
+      background-color: rgb(255, 255, 255);
+      color: rgb(130, 87, 230);
       padding: 3px 7px;
       border-radius: 50%;
       position: relative;
@@ -56,7 +56,7 @@ export const Links = styled.div`
   padding: 0 10px;
 
   :not(:nth-child(3)) {
-    border-right: 3px solid #707070;
+    border-right: 3px solid rgb(112, 112, 112);
   }
 
   a {
@@ -67,7 +67,7 @@ export const Links = styled.div`
     padding: 5px 0;
 
     &:hover {
-      border-bottom: 3px solid #633BBC;
+      border-bottom: 3px solid rgb(99, 59, 188);
     }
   }
 `

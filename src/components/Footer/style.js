@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.footer`
   width: 100%;
   height: 70px;
-  background: #0B0B0C;
-  color: #F2EBEB;
-  border-top: 5px solid #633BBC;
+  background: rgb(11, 11, 12);
+  color: rgb(242, 235, 235);
+  border-top: 5px solid rgb(99, 59, 188);
   display: flex;
   justify-content: center;
   align-items: center;

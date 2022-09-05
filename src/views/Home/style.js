@@ -17,6 +17,22 @@ export const FilterContainer = styled.div`
   }
 `
 
+export const Title = styled.div`
+  width: 100%;
+  border-bottom: 1px solid rgb(99, 59, 188);
+  color: rgb(242, 235, 235);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  h3 {
+    position: relative;
+    top: 30px;
+    background: rgb(18, 18, 18);
+    padding: 0 20px;
+  }
+`
+
 export const Content = styled.div`
   width: 100%;
   display: flex;

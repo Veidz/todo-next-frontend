@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, FilterContainer, Content } from './style'
+import { Container, FilterContainer, Content, Title } from './style'
 
 import Header from '../../components/Header'
 import FilterCard from '../../components/FilterCard'
@@ -46,7 +46,9 @@ function Home () {
         </button>
       </FilterContainer>
 
-      
+      <Title>
+        <h3>TASKS</h3>
+      </Title>
 
       <Content>
         <TaskCard />

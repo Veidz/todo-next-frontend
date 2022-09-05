@@ -11,6 +11,7 @@ export const Container = styled.div`
   justify-content: space-around;
   padding: 10px;
   cursor: pointer;
+  transition: all 0.3s ease-in;
 
   img {
     width: 25px;
@@ -21,5 +22,9 @@ export const Container = styled.div`
     align-self: flex-end;
     font-weight: bold;
     font-size: 18px;
+  }
+
+  &:hover {
+    background: rgb(99, 59, 188);
   }
 `
