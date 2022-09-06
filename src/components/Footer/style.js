@@ -9,8 +9,10 @@ export const Container = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  /* position: absolute; */
+  position: fixed;
   bottom: 0;
+  margin-top: 70px;
 
   p {
     display: flex;

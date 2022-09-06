@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Container, LeftSide, Links, RightSide } from './style'
 import logo from '../../assets/logo.png'
 import notification from '../../assets/notification.png'
@@ -9,8 +11,8 @@ function Header ({ lateCount, clickNotification }) {
         <img src={ logo } alt='Logo' />
       </LeftSide>
       <RightSide>
-        <Links><a href='#'>HOME</a></Links>
-        <Links><a href='#'>NEW TASK</a></Links>
+        <Links><Link to='/'>HOME</Link></Links>
+        <Links><Link to='/task'>NEW TASK</Link></Links>
         <Links><a href='#'>SYNC PHONE</a></Links>
         <button type='button' id='notification' onClick={ clickNotification }>
           <img src={ notification } alt='Notification' />
