@@ -10,8 +10,8 @@ function Header ({ lateCount, clickNotification }) {
       </LeftSide>
       <RightSide>
         <Links><a href='#'>HOME</a></Links>
-        <Links><a href='#'>SYNC PHONE</a></Links>
         <Links><a href='#'>NEW TASK</a></Links>
+        <Links><a href='#'>SYNC PHONE</a></Links>
         <button type='button' id='notification' onClick={ clickNotification }>
           <img src={ notification } alt='Notification' />
           <span>{ lateCount }</span>
