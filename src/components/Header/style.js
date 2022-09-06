@@ -30,6 +30,13 @@ export const RightSide = styled.div`
   justify-content: flex-end;
 
   #notification {
+    background: none;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
     img {
       width: 25px;
       height: 30px;
@@ -43,10 +50,6 @@ export const RightSide = styled.div`
       position: relative;
       top: -15px;
       right: 12px;
-    }
-
-    &:hover {
-      opacity: 0.5;
     }
   }
 `

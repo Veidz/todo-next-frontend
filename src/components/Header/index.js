@@ -2,7 +2,7 @@ import { Container, LeftSide, Links, RightSide } from './style'
 import logo from '../../assets/logo.png'
 import notification from '../../assets/notification.png'
 
-function Header () {
+function Header ({ lateCount, clickNotification }) {
   return (
     <Container>
       <LeftSide>
@@ -12,10 +12,10 @@ function Header () {
         <Links><a href='#'>HOME</a></Links>
         <Links><a href='#'>SYNC PHONE</a></Links>
         <Links><a href='#'>NEW TASK</a></Links>
-        <a href='#' id='notification'>
-          <img src={ notification } alt="Notification" />
-          <span>2</span>
-        </a>
+        <button type='button' id='notification' onClick={ clickNotification }>
+          <img src={ notification } alt='Notification' />
+          <span>{ lateCount }</span>
+        </button>
       </RightSide>
     </Container>
   )
