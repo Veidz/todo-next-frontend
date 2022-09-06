@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container, FormContainer, TypeIcons } from './style'
+import { Container, FormContainer, InputContainer, TextAreaContainer, TypeIcons } from './style'
 
 import api from '../../services/api'
 
@@ -35,6 +35,26 @@ function Task () {
             ))
           }
         </TypeIcons>
+
+        <InputContainer>
+          <h3>Title</h3>
+          <input type='text' placeholder='Task title...' />
+        </InputContainer>
+
+        <TextAreaContainer>
+          <h3>Description</h3>
+          <textarea rows={ 5 } placeholder='Task details...' />
+        </TextAreaContainer>
+
+        <InputContainer>
+          <h3>Date</h3>
+          <input type='date' placeholder='Task date...' />
+        </InputContainer>
+
+        <InputContainer>
+          <h3>Hour</h3>
+          <input type='time' placeholder='Task hour...' />
+        </InputContainer>
       </FormContainer>
 
       <Footer />

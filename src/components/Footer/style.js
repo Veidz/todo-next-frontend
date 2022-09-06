@@ -9,7 +9,7 @@ export const Container = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: relative;
   bottom: 0;
 
   p {
