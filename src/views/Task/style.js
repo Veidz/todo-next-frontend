@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 export const FormContainer = styled.div`
   width: 50%;
+  margin-bottom: 70px;
 `
 
 export const TypeIcons = styled.div`
@@ -58,6 +59,7 @@ export const InputContainer = styled.div`
     border-bottom: 1px solid rgb(130, 87, 230);
     color: rgb(242, 235, 235);
     color-scheme: dark;
+    font-family: inherit;
 
     &:focus {
       outline-color: rgb(130, 87, 230);
@@ -85,10 +87,71 @@ export const TextAreaContainer = styled.div`
     resize: none;
     color: rgb(242, 235, 235);
     padding: 10px;
+    font-family: inherit;
 
     &:focus {
       outline-color: rgb(130, 87, 230);
       outline-style: solid;
+    }
+  }
+`
+
+export const OptionsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    input:hover {
+      cursor: pointer;
+    }
+
+    span {
+      background-color: green;
+      color: rgb(242, 235, 235);
+      font-size: 18px;
+      padding: 8px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  }
+
+  button {
+    background-color: red;
+    border: none;
+    font-weight: bold;
+    color: rgb(130, 87, 230);
+    color: rgb(242, 235, 235);
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+`
+
+export const AddContainer = styled.div`
+  width: 100%;
+  margin-top: 20px;
+
+  button {
+    width: 100%;
+    background-color: rgb(130, 87, 230);
+    color: rgb(242, 235, 235);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
     }
   }
 `

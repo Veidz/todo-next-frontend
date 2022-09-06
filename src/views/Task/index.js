@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container, FormContainer, InputContainer, TextAreaContainer, TypeIcons } from './style'
+import { Container, FormContainer, InputContainer, OptionsContainer, AddContainer, TextAreaContainer, TypeIcons } from './style'
 
 import api from '../../services/api'
 
@@ -55,6 +55,18 @@ function Task () {
           <h3>Hour</h3>
           <input type='time' placeholder='Task hour...' />
         </InputContainer>
+
+        <OptionsContainer>
+          <div>
+            <input type='checkbox' />
+            <span>COMPLETED</span>
+          </div>
+          <button type='button'>DELETE</button>
+        </OptionsContainer>
+
+        <AddContainer>
+          <button type='button'>ADD</button>
+        </AddContainer>
       </FormContainer>
 
       <Footer />
