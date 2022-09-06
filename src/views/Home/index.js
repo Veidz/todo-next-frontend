@@ -7,6 +7,7 @@ import Header from '../../components/Header'
 import FilterCard from '../../components/FilterCard'
 import Footer from '../../components/Footer'
 import TaskCard from '../../components/TaskCard'
+import { Link } from 'react-router-dom'
 
 function Home () {
   const [filterActive, setFilterActive] = useState('all')
@@ -15,7 +16,7 @@ function Home () {
 
   useEffect(() => {
     async function loadTasks () {
-      const tasks = await api.get(`/tasks/filter/${filterActive}/11:11:11:11:11:11`)
+      const tasks = await api.get(`/task/filter/${filterActive}/11:11:11:11:11:11`)
       setTasks(tasks.data)
     }
     loadTasks()
@@ -23,7 +24,7 @@ function Home () {
   }, [filterActive])
 
   async function lateVerify () {
-    const lateTasks = await api.get('/tasks/filter/late/11:11:11:11:11:11')
+    const lateTasks = await api.get('/task/filter/late/11:11:11:11:11:11')
     setLateCount(lateTasks.data.length)
   }
 
@@ -75,12 +76,13 @@ function Home () {
       <Content>
         {
           tasks.map((task) => (
-            <TaskCard
-              key={ task._id }
-              type={ task.type }
-              title={ task.title }
-              when={ task.when }
-            />
+            <Link key={ task._id } to={ `/task/${task._id}` }>
+              <TaskCard
+                type={ task.type }
+                title={ task.title }
+                when={ task.when }
+              />
+            </Link>
           ))
         }
       </Content>

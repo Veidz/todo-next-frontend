@@ -23,7 +23,7 @@ function Task () {
   }, [])
 
   async function lateVerify () {
-    const lateTasks = await api.get('/tasks/filter/late/11:11:11:11:11:11')
+    const lateTasks = await api.get('/task/filter/late/11:11:11:11:11:11')
     setLateCount(lateTasks.data.length)
   }
 
@@ -50,8 +50,8 @@ function Task () {
           {
             icons.map((icon, index) => (
               index > 0 && 
-              <button type='button' onClick={ () => setType(index) } >
-                <img src={ icon } alt='Task type' className={ type && type !== index && 'inactive'} />
+              <button key={ index } type='button' onClick={ () => setType(index) } >
+                <img src={ icon } alt='Task type' className={ type && type !== index ? 'inactive' : ''} />
               </button>
             ))
           }
