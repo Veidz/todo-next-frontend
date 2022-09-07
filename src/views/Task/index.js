@@ -6,15 +6,15 @@ import api from '../../services/api'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import icons from '../../utils/type-icons'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { format } from 'date-fns'
 
 function Task () {
   const { id } = useParams()
 
+  const [redirect, setRedirect] = useState(false)
   const [lateCount, setLateCount] = useState()
   const [type, setType] = useState(1)
-  // const [id, setId] = useState()
   const [done, setDone] = useState(false)
   const [title, setTitle] = useState()
   const [description, setDescription] = useState()
@@ -33,7 +33,7 @@ function Task () {
       setDate(format(new Date(task.data.when), 'yyyy-MM-dd'))
       setHour(format(new Date(task.data.when), 'HH:mm'))
     }
-    loadDetails()
+    if (id) loadDetails()
   }, [id])
 
   async function lateVerify () {
@@ -42,7 +42,17 @@ function Task () {
   }
 
   async function save () {
-    try {
+    if (id) {
+      await api.put(`/task/${id}`, {
+        macaddress,
+        done,
+        type,
+        title,
+        description,
+        when: `${date}T${hour}:00.000`
+      })
+      setRedirect(true)
+    } else {
       await api.post('/task', {
         macaddress,
         type,
@@ -50,13 +60,13 @@ function Task () {
         description,
         when: `${date}T${hour}:00.000`
       })
-    } catch (error) {
-      console.log(error.message)
+      setRedirect(true)
     }
   }
 
   return (
     <Container>
+      { redirect && <Navigate to='/' /> }
       <Header lateCount={ lateCount } />
 
       <FormContainer>
