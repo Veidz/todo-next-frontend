@@ -6,11 +6,15 @@ import api from '../../services/api'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import icons from '../../utils/type-icons'
+import { useParams } from 'react-router-dom'
+import { format } from 'date-fns'
 
 function Task () {
+  const { id } = useParams()
+
   const [lateCount, setLateCount] = useState()
   const [type, setType] = useState(1)
-  const [id, setId] = useState()
+  // const [id, setId] = useState()
   const [done, setDone] = useState(false)
   const [title, setTitle] = useState()
   const [description, setDescription] = useState()
@@ -20,7 +24,17 @@ function Task () {
 
   useEffect(() => {
     lateVerify()
-  }, [])
+
+    async function loadDetails () {
+      const task = await api.get(`/task/${id}`)
+      setType(task.data.type)
+      setTitle(task.data.title)
+      setDescription(task.data.description)
+      setDate(format(new Date(task.data.when), 'yyyy-MM-dd'))
+      setHour(format(new Date(task.data.when), 'HH:mm'))
+    }
+    loadDetails()
+  }, [id])
 
   async function lateVerify () {
     const lateTasks = await api.get('/task/filter/late/11:11:11:11:11:11')
@@ -29,7 +43,7 @@ function Task () {
 
   async function save () {
     try {
-      await api.post('/tasks', {
+      await api.post('/task', {
         macaddress,
         type,
         title,
