@@ -5,16 +5,20 @@ import { Container, Content, QrCodeArea, ValidationCode } from './style'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { Navigate } from 'react-router-dom'
 
 function Sync () {
-  const [macaddress, setMacaddress] = useState('')
+  const [macaddress, setMacaddress] = useState()
+  const [redirect, setRedirect] = useState(false)
 
-  async function saveMac () {
+  function saveMac () {
     localStorage.setItem('todo-next/macaddress', macaddress)
+    setRedirect(true)
   }
 
   return (
     <Container>
+      { redirect && <Navigate to='/' />}
       <Header />
         <Content>
           <h1>READ THE QR CODE WITH THE APP</h1>

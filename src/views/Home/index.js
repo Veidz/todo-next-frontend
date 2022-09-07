@@ -7,11 +7,17 @@ import Header from '../../components/Header'
 import FilterCard from '../../components/FilterCard'
 import Footer from '../../components/Footer'
 import TaskCard from '../../components/TaskCard'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 function Home () {
   const [filterActive, setFilterActive] = useState('all')
   const [tasks, setTasks] = useState([])
+  const [redirect, setRedirect] = useState(false)
+
+  useEffect(() => {
+    const isConnected = localStorage.getItem('todo-next/macaddress')
+    if (!isConnected) setRedirect(true)
+  }, [])
 
   useEffect(() => {
     async function loadTasks () {
@@ -27,6 +33,8 @@ function Home () {
  
   return (
     <Container>
+      {/* { console.log(redirect) } */}
+      { redirect && <Navigate to='/sync' /> }
       <Header clickNotification={ handleNotification } />
 
       <FilterContainer>
