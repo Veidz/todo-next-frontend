@@ -14,10 +14,15 @@ function Header ({ lateCount, clickNotification }) {
         <Links><Link to='/'>HOME</Link></Links>
         <Links><Link to='/task'>NEW TASK</Link></Links>
         <Links><Link to='/sync'>SYNC PHONE</Link></Links>
-        <button type='button' id='notification' onClick={ clickNotification }>
-          <img src={ notification } alt='Notification' />
-          <span>{ lateCount }</span>
-        </button>
+        {
+          lateCount > 0 &&
+          <>
+            <button type='button' id='notification' onClick={ clickNotification }>
+              <img src={ notification } alt='Notification' />
+              <span>{ lateCount }</span>
+            </button>
+          </>
+        }
       </RightSide>
     </Container>
   )
