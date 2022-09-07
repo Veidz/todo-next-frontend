@@ -32,6 +32,7 @@ function Task () {
       setDescription(task.data.description)
       setDate(format(new Date(task.data.when), 'yyyy-MM-dd'))
       setHour(format(new Date(task.data.when), 'HH:mm'))
+      setDone(task.data.done)
     }
     if (id) loadDetails()
   }, [id])
@@ -42,6 +43,12 @@ function Task () {
   }
 
   async function save () {
+    if (!title) return alert('You need to fill the task title')
+    if (!description) return alert('You need to fill the task description')
+    if (!type) return alert('You need to fill the task type')
+    if (!date) return alert('You need to fill the task date')
+    if (!hour) return alert('You need to fill the task hour')
+
     if (id) {
       await api.put(`/task/${id}`, {
         macaddress,
