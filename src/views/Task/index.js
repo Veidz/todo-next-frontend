@@ -13,7 +13,6 @@ function Task () {
   const { id } = useParams()
 
   const [redirect, setRedirect] = useState(false)
-  const [lateCount, setLateCount] = useState()
   const [type, setType] = useState(1)
   const [done, setDone] = useState(false)
   const [title, setTitle] = useState()
@@ -23,8 +22,6 @@ function Task () {
   const [macaddress, setMacaddress] = useState('11:11:11:11:11:11')
 
   useEffect(() => {
-    lateVerify()
-
     async function loadDetails () {
       const task = await api.get(`/task/${id}`)
       setType(task.data.type)
@@ -36,11 +33,6 @@ function Task () {
     }
     if (id) loadDetails()
   }, [id])
-
-  async function lateVerify () {
-    const lateTasks = await api.get('/task/filter/late/11:11:11:11:11:11')
-    setLateCount(lateTasks.data.length)
-  }
 
   async function save () {
     if (!title) return alert('You need to fill the task title')
@@ -82,7 +74,7 @@ function Task () {
   return (
     <Container>
       { redirect && <Navigate to='/' /> }
-      <Header lateCount={ lateCount } />
+      <Header />
 
       <FormContainer>
         <TypeIcons>

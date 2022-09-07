@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom'
 function Home () {
   const [filterActive, setFilterActive] = useState('all')
   const [tasks, setTasks] = useState([])
-  const [lateCount, setLateCount] = useState()
 
   useEffect(() => {
     async function loadTasks () {
@@ -20,13 +19,7 @@ function Home () {
       setTasks(tasks.data)
     }
     loadTasks()
-    lateVerify()
   }, [filterActive])
-
-  async function lateVerify () {
-    const lateTasks = await api.get('/task/filter/late/11:11:11:11:11:11')
-    setLateCount(lateTasks.data.length)
-  }
 
   function handleNotification () {
     setFilterActive('late')
@@ -34,7 +27,7 @@ function Home () {
  
   return (
     <Container>
-      <Header lateCount={ lateCount } clickNotification={ handleNotification } />
+      <Header clickNotification={ handleNotification } />
 
       <FilterContainer>
         <button type='button' onClick={() => setFilterActive('all')}>
