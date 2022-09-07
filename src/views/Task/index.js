@@ -19,7 +19,7 @@ function Task () {
   const [description, setDescription] = useState()
   const [date, setDate] = useState()
   const [hour, setHour] = useState()
-  const [macaddress, setMacaddress] = useState('11:11:11:11:11:11')
+  const [macaddress] = useState(localStorage.getItem('todo-next/macaddress'))
 
   useEffect(() => {
     async function loadDetails () {

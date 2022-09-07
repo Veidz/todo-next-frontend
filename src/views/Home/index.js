@@ -21,7 +21,8 @@ function Home () {
 
   useEffect(() => {
     async function loadTasks () {
-      const tasks = await api.get(`/task/filter/${filterActive}/11:11:11:11:11:11`)
+      const macaddress = localStorage.getItem('todo-next/macaddress')
+      const tasks = await api.get(`/task/filter/${filterActive}/${macaddress}`)
       setTasks(tasks.data)
     }
     loadTasks()
