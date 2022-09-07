@@ -71,6 +71,14 @@ function Task () {
     }
   }
 
+  async function remove () {
+    const res = global.confirm('Do you really want to remove this task?')
+    if (res) {
+      await api.delete(`/task/${id}`)
+      setRedirect(true)
+    }
+  }
+
   return (
     <Container>
       { redirect && <Navigate to='/' /> }
@@ -108,13 +116,16 @@ function Task () {
           <input type='time' placeholder='Task hour...' onChange={ (e) => setHour(e.target.value) } value={ hour } />
         </InputContainer>
 
-        <OptionsContainer>
-          <div>
-            <input type='checkbox' checked={ done } onChange={ () => setDone(!done) } />
-            <span>COMPLETED</span>
-          </div>
-          <button type='button'>DELETE</button>
-        </OptionsContainer>
+        {
+          id && 
+          <OptionsContainer>
+            <div>
+              <input type='checkbox' checked={ done } onChange={ () => setDone(!done) } />
+              <span>COMPLETED</span>
+            </div>
+            <button type='button' onClick={ remove }>DELETE</button>
+          </OptionsContainer>
+        }
 
         <AddContainer>
           <button type='button' onClick={ save }>ADD</button>

@@ -31,7 +31,7 @@ function Home () {
   function handleNotification () {
     setFilterActive('late')
   }
-
+ 
   return (
     <Container>
       <Header lateCount={ lateCount } clickNotification={ handleNotification } />
