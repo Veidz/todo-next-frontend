@@ -6,7 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   color: rgb(242, 235, 235);
-  /* background-color: red; */
 `
 
 export const Content = styled.div`

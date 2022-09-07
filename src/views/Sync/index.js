@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { QRCodeCanvas } from 'qrcode.react'
 
 import { Container, Content, QrCodeArea, ValidationCode } from './style'
@@ -6,6 +7,12 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 function Sync () {
+  const [macaddress, setMacaddress] = useState('')
+
+  async function saveMac () {
+    localStorage.setItem('todo-next/macaddress', macaddress)
+  }
+
   return (
     <Container>
       <Header />
@@ -18,8 +25,8 @@ function Sync () {
 
           <ValidationCode>
             <span>Enter the code that appeared on your phone</span>
-            <input type='text' />
-            <button type='button'>SYNC</button>
+            <input type='text' onChange={ (e) => setMacaddress(e.target.value) } value={ macaddress } />
+            <button type='button' onClick={ saveMac }>SYNC</button>
           </ValidationCode>
         </Content>
       <Footer />
